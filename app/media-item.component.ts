@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'mw-media-item',
@@ -6,7 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app/media-item.component.css']
 })
 export class MediaItemComponent {
+ @Input() mediaItem; //property which is [mediaItem] = name of the hash inputted.
+ @Output() deleteyo = new EventEmitter(); //property called delete, exposing an event thats built into angular. 
+
   onDelete() {
-    console.log('deleted');
+    this.deleteyo.emit(this.mediaItem)
   }
 }
